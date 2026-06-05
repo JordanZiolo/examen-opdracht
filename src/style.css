@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+    min-height: -100vh;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
+}
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    padding: 20px;
+    
+    border-bottom: 2px solid #ffffff;
+}
+
+.header h1 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, #000000, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    color: #000000;
+    
+}
+
+/* ── Score panel ── */
+.score-panel {
+    position: fixed;
+    right: 20px;
+    top: 400px;
+    
+    padding: 85px;
+    border-radius: 15px;
+    
+    text-align: center;
+    z-index: 100;
+}
+
+.score-panel h3 {
+    color: #e94560;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.score-item {
+    margin: 15px 0;
+}
+
+.score-item label {
+    display: block;
+    color: #000000;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.score-item span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #080808;
+}
+
+.score-item.best span {
+    color: #000000;
+}
+
+/* ── Game container ── */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 100px);
+}
+
+/* ── Game cards ── */
+.game-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: #e94560;
+    box-shadow: 0 20px 40px rgba(233, 69, 96, 0.3);
+}
+
+.game-card.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.game-card.correct {
+    border-color: #000000;
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+    
+}
+
+.game-card.wrong {
+    border-color: #ef4444;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+}
+
+.game-card.left-side  { order: 1; }
+.game-card.right-side { order: 3; }
+
+/* ── Card internals ── */
+.game-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.game-players {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e94560;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.game-players.visible {
+    opacity: 1;
+}
+
+/* ── VS badge ── */
+.vs-container {
+    order: 2;
+}
+
+.vs-badge {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e94560;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+/* ── Result overlay ── */
+.result-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.result-overlay.active { display: flex; }
+
+.result-overlay h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+
+.result-overlay.win  h2 { color: #4ade80; }
+.result-overlay.lose h2 { color: #ef4444; }
+
+.result-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #000000;
+    text-align: center;
+}
+
+/* ── Buttons ── */
+.continue-btn,
+.restart-btn {
+    padding: 15px 50px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.continue-btn {
+    background: linear-gradient(45deg, #4ade80, #22c55e);
+    color: rgb(0, 0, 0);
+}
+
+.restart-btn {
+    background: linear-gradient(45deg, #e94560, #ff6b6b);
+    color: rgb(0, 0, 0);
+}
+
+.continue-btn:hover,
+.restart-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Instruction ── */
+.instruction {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-top: 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+    .game-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .game-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .score-panel {
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .vs-badge {
+        font-size: 2rem;
+    }
+}
+.result-box {
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 15px;
+  background: rgb(255, 255, 255);
+  border: 2px solid #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.result-box.win {
+  border-color: #ffffff;
+}
+
+.result-box.lose {
+  border-color: #ffffff;
+}

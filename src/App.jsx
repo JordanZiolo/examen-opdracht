@@ -1,0 +1,16 @@
+import Game from "./Game";
+import "./style.css";
+import games from "./games";
+
+export default function App() {
+  return (
+    <div>
+      <header className="header">
+        <h1>H1gherL0wer</h1>
+        <p>Pick the game with the higher all-time player count!</p>
+      </header>
+
+      <Game games={games} />
+    </div>
+  );
+}
