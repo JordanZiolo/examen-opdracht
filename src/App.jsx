@@ -7,7 +7,7 @@ export default function App() {
     <div>
       <header className="header">
         <h1>H1gherL0wer</h1>
-        <p>Pick the game with the higher all-time player count!</p>
+        <p className="ondertitel">Pick the game with the higher all-time player count!</p>
       </header>
 
       <Game games={games} />

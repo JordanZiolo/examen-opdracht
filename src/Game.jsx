@@ -53,8 +53,17 @@ export default function Game({ games }) {
     setupRound();
   }, []);
 
+  function resetGame() {
+    setCurrentStreak(0);
+    setWinningGame(null);
+    setupRound();
+  }
+
   function makeChoice(side) {
     if (!leftGame || !rightGame) return;
+
+    // Prevent choosing while a result is showing (correct or wrong)
+    if (result) return;
 
     const chosen = side === "left" ? leftGame : rightGame;
     const other = side === "left" ? rightGame : leftGame;
@@ -99,19 +108,23 @@ export default function Game({ games }) {
           <label> Best Streak</label>
           <span>{bestStreak}</span>
         </div>
+        {result && !result.isCorrect && (
+          <button className="reset-btn" onClick={resetGame}>
+            Reset Game
+          </button>
+        )}
       </aside>
 
       {/* RESULT OP PAGINA (geen overlay meer) */}
       {result && (
         <div className={`result-box ${result.isCorrect ? "win" : "lose"}`}>
-          <h2>{result.isCorrect ? "✅ Correct!" : "❌ Wrong!"}</h2>
+          <h2 className="result-text">{result.isCorrect ? "✅ Correct!" : "❌ Wrong!"}</h2>
 
           <p>
-            <strong>{result.chosen.name}</strong> vs{" "}
-            <strong>{result.other.name}</strong>
+            
+          {result.chosen.name}: {formatPlayers(result.chosen.players)} players
             <br />
-            {result.chosen.name}: {formatPlayers(result.chosen.players)} players
-            <br />
+            
             {result.other.name}: {formatPlayers(result.other.players)} players
           </p>
         </div>

@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
-    min-height: -100vh;
+    min-height: 100vh;
     color: rgb(0, 0, 0);
     overflow-x: hidden;
 }
@@ -16,20 +16,23 @@ body {
 .header {
     text-align: center;
     padding: 20px;
-    
+
     border-bottom: 2px solid #ffffff;
 }
 
 .header h1 {
     font-size: 2rem;
-    background: linear-gradient(45deg, #000000, #000000);
+    /* background: linear-gradient(45deg, #000000, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background-clip: text; */
+    color: black;
 }
+
 
 .header p {
     color: #000000;
+    
     
 }
 
@@ -38,10 +41,8 @@ body {
     position: fixed;
     right: 20px;
     top: 400px;
-    
     padding: 85px;
     border-radius: 15px;
-    
     text-align: center;
     z-index: 100;
 }
@@ -82,7 +83,6 @@ body {
     padding: 50px;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: calc(100vh - 100px);
 }
 
 /* ── Game cards ── */
@@ -100,8 +100,7 @@ body {
 
 .game-card:hover {
     transform: translateY(-10px);
-    border-color: #e94560;
-    box-shadow: 0 20px 40px rgba(233, 69, 96, 0.3);
+    border-color: white;
 }
 
 .game-card.disabled {
@@ -186,7 +185,6 @@ body {
     margin-bottom: 20px;
 }
 
-
 .result-overlay.win  h2 { color: #4ade80; }
 .result-overlay.lose h2 { color: #ef4444; }
 
@@ -198,31 +196,22 @@ body {
 }
 
 /* ── Buttons ── */
-.continue-btn,
-.restart-btn {
-    padding: 15px 50px;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
+
+.reset-btn {
+  margin-top: 10px;
+  padding: 100px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e94560;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.continue-btn {
-    background: linear-gradient(45deg, #4ade80, #22c55e);
-    color: rgb(0, 0, 0);
-}
-
-.restart-btn {
-    background: linear-gradient(45deg, #e94560, #ff6b6b);
-    color: rgb(0, 0, 0);
-}
-
-.continue-btn:hover,
-.restart-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.reset-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
 }
 
 /* ── Instruction ── */
@@ -262,10 +251,15 @@ body {
   margin: 20px auto;
   padding: 20px;
   max-width: 500px;
-  border-radius: 15px;
+  border-radius: px;
   background: rgb(255, 255, 255);
   border: 2px solid #ffffff;
-  color: rgb(0, 0, 0);
+  color: black;
+}
+
+.result-text {
+color: black;
+margin-left: -27px;
 }
 
 .result-box.win {
