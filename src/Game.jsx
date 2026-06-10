@@ -34,17 +34,15 @@ export default function Game({ games }) {
     return available[Math.floor(Math.random() * available.length)];
   }
 
-  function setupRound(keepWinner = false) {
-    if (keepWinner && winningGame) {
-      setLeftGame(winningGame);
-      setRightGame(getRandomGame([winningGame.name]));
-    } else {
-      const left = getRandomGame();
-      const right = getRandomGame([left.name]);
+  function setupRound() {
+    const left = getRandomGame();
+    const right = getRandomGame([left.name]);
 
-      setLeftGame(left);
-      setRightGame(right);
-    }
+    setLeftGame(left);
+    setRightGame(right);
+    setUsedGames((prev) =>
+      Array.from(new Set([...(prev || []), left.name, right.name]))
+    );
 
     setResult(null);
   }
@@ -84,7 +82,7 @@ export default function Game({ games }) {
       setWinningGame(other);
 
       setTimeout(() => {
-        setupRound(true);
+        setupRound();
       }, 1200);
     } else {
       setCurrentStreak(0);

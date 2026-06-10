@@ -94,7 +94,7 @@ const games = [
     { name: "PUBG Mobile",                        players: 1200, image: "src/images/pbm.png" },
     { name: "Call of Duty Mobile",                players: 650,  image: "src/images/callDm.png" },
     { name: "Subway Surfers",                     players: 3000, image: "src/images/sub.png" },
-    { name: "Temple Run",                         players: 1000, image: "src/images/temp.pngh" },
+    { name: "Temple Run",                         players: 1000, image: "src/images/temp.png" },
     { name: "Angry Birds",                        players: 500,  image: "src/images/birds.png" },
     { name: "Fruit Ninja",                        players: 300,  image: "src/images/fruit.png" },
     { name: "Cut the Rope",                       players: 250,  image: "src/images/cut.png" },
