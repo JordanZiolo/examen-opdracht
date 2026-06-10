@@ -1,4 +1,5 @@
 import Game from "./Game";
+import Footer from "./footer";
 import "./style.css";
 import games from "./games";
 
@@ -11,6 +12,7 @@ export default function App() {
       </header>
 
       <Game games={games} />
+      <Footer />
     </div>
   );
 }

@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
     color: rgb(0, 0, 0);
     overflow-x: hidden;
+    padding-bottom: 64px;
 }
 
 /* ── Header ── */
@@ -40,7 +41,7 @@ body {
 .score-panel {
     position: fixed;
     right: 20px;
-    top: 400px;
+    top: 240px;
     padding: 85px;
     border-radius: 15px;
     text-align: center;
@@ -85,6 +86,8 @@ body {
     margin: 0 auto;
 }
 
+.game-container { position: relative; }
+
 /* ── Game cards ── */
 .game-card {
     background: rgba(255, 255, 255, 0.1);
@@ -126,9 +129,20 @@ body {
 .game-image {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    
     border-radius: 15px;
+    padding: 8px;
     margin-bottom: 15px;
+  
+    filter: saturate(1.05) contrast(1.03);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.game-card:hover .game-image {
+    transform: scale(1.01);
+    filter: saturate(1.1) contrast(1.06);
 }
 
 .game-title {
@@ -161,6 +175,27 @@ body {
     font-weight: bold;
     color: #e94560;
     text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+}
+
+/* center reset button between the cards */
+.center-reset {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(70% + 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.center-reset .reset-btn {
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: #e94560;
+    color: white;
+    border: none;
+    box-shadow: 0 8px 20px rgba(233,69,96,0.18);
 }
 
 /* ── Result overlay ── */
@@ -198,15 +233,15 @@ body {
 /* ── Buttons ── */
 
 .reset-btn {
-  margin-top: 10px;
-  padding: 100px 16px;
-  border: none;
-  border-radius: 8px;
-  background: #e94560;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
+    margin-top: 10px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #e94560;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .reset-btn:hover {
@@ -220,6 +255,19 @@ body {
     font-size: 1.2rem;
     color: #000000;
     margin-top: 20px;
+}
+
+.footer {
+    background-color: red;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    margin-top: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* ── Responsive ── */
@@ -269,3 +317,16 @@ margin-left: -27px;
 .result-box.lose {
   border-color: #ffffff;
 }
+
+/* color the result text */
+.result-box.win .result-text { color: #4ade80; }
+.result-box.lose .result-text { color: #ef4444; }
+
+/* answers under cards */
+.answer { text-align: center; margin-top: 10px; }
+.answer.correct { color: #16a34a; font-weight: 700; }
+.answer.wrong { color: #dc2626; font-weight: 700; }
+
+/* keep card highlight consistent */
+.game-card.correct { border-color: #16a34a; box-shadow: 0 0 30px rgba(34,197,94,0.25); }
+.game-card.wrong { border-color: #dc2626; box-shadow: 0 0 30px rgba(220,38,38,0.25); }

@@ -1,11 +1,11 @@
 // Database of 200 games with all-time player counts (in millions)
 const games = [
-    { name: "Minecraft",                          players: 738,  image: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png" },
-    { name: "Grand Theft Auto V",                 players: 200,  image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" },
-    { name: "Tetris",                             players: 520,  image: "https://upload.wikimedia.org/wikipedia/en/7/7d/Tetris_NES_cover_art.jpg" },
-    { name: "Wii Sports",                         players: 82,   image: "https://upload.wikimedia.org/wikipedia/en/e/e0/Wii_Sports_Europe.jpg" },
-    { name: "PUBG",                               players: 400,  image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Pubgbattlegrounds.png" },
-    { name: "Mario Kart 8",                       players: 64,   image: "https://upload.wikimedia.org/wikipedia/en/b/b5/Mario_Kart_8_Deluxe.jpg" },
+    { name: "Minecraft",                          players: 738,  image: "src/images/minecraft.png" },
+    { name: "Grand Theft Auto V",                 players: 200,  image: "src/images/grand-theft-auto-v.png" },
+    { name: "Tetris",                             players: 520,  image: "src/images/tetris.png" },
+    { name: "Wii Sports",                         players: 82,   image: "src/images/wii-sports.png" },
+    { name: "PUBG",                               players: 400,  image: "src/images/pubg.png" },
+    { name: "Mario Kart 8",                       players: 64,   image: "src/images/mario-kart-8.png" },
     { name: "Super Mario Bros.",                  players: 58,   image: "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png" },
     { name: "Red Dead Redemption 2",              players: 65,   image: "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" },
     { name: "The Witcher 3",                      players: 50,   image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" },
@@ -102,7 +102,7 @@ const games = [
     { name: "Crossy Road",                        players: 200,  image: "https://upload.wikimedia.org/wikipedia/en/9/97/Crossy_Road_logo.png" },
     { name: "8 Ball Pool",                        players: 500,  image: "https://upload.wikimedia.org/wikipedia/en/e/e8/8_Ball_Pool_app_icon.png" },
     { name: "Asphalt 9",                          players: 100,  image: "https://upload.wikimedia.org/wikipedia/en/c/cc/Asphalt_9_logo.png" },
-    { name: "Geometry Dash",                      players: 100,  image: "https://upload.wikimedia.org/wikipedia/en/8/83/Geometry_Dash_logo.png" },
+    { name: "Geometry Dash",                      players: 100,  image: "src/images/geometry-dash.png" },
     { name: "Stumble Guys",                       players: 200,  image: "https://upload.wikimedia.org/wikipedia/en/8/81/Stumble_Guys_logo.png" },
     { name: "Human Fall Flat",                    players: 40,   image: "https://upload.wikimedia.org/wikipedia/en/6/6e/Human_Fall_Flat_cover.jpg" },
     { name: "Gang Beasts",                        players: 10,   image: "https://upload.wikimedia.org/wikipedia/en/5/58/Gang_Beasts_Logo.png" },
@@ -182,9 +182,9 @@ const games = [
     { name: "Pokémon Sword/Shield",               players: 26,   image: "https://upload.wikimedia.org/wikipedia/en/b/b6/Pok%C3%A9mon_Sword_and_Shield_logo.png" },
     { name: "Metroid Dread",                      players: 3,    image: "https://upload.wikimedia.org/wikipedia/en/d/df/Metroid_Dread_cover.jpg" },
     { name: "The Legend of Zelda: TOTK",          players: 21,   image: "https://upload.wikimedia.org/wikipedia/en/f/fc/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg" },
-    { name: "Link's Awakening (2019)",            players: 7,    image: "https://upload.wikimedia.org/wikipedia/en/a/a5/The_Legend_of_Zelda_Link%27s_Awakening_%282019%29_cover.jpg" },
+    { name: "Link's Awakening (2019)",            players: 7,    image: "https://upload.wikimedia.org/wikipedia/en/a/a5/The_Legend_of_Zelda_Link%27s_Awakening_%282019%29_cover.jpg%22"},
     { name: "Pikmin 4",                           players: 3,    image: "https://upload.wikimedia.org/wikipedia/en/a/a4/Pikmin_4_cover_art.png" },
     { name: "Bayonetta 3",                        players: 2,    image: "https://upload.wikimedia.org/wikipedia/en/6/69/Bayonetta_3_cover_art.jpg" },
 ];
-
+ 
 export default games;

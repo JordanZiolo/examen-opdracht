@@ -94,6 +94,9 @@ export default function Game({ games }) {
 
   if (!leftGame || !rightGame) return <div>Loading...</div>;
 
+  const leftIsCorrect = leftGame.players >= rightGame.players;
+  const rightIsCorrect = rightGame.players >= leftGame.players;
+
   return (
     <>
       <aside className="score-panel">
@@ -108,25 +111,13 @@ export default function Game({ games }) {
           <label> Best Streak</label>
           <span>{bestStreak}</span>
         </div>
-        {result && !result.isCorrect && (
-          <button className="reset-btn" onClick={resetGame}>
-            Reset Game
-          </button>
-        )}
+        {/* Reset button moved into center gap between cards when wrong */}
       </aside>
 
       {/* RESULT OP PAGINA (geen overlay meer) */}
       {result && (
         <div className={`result-box ${result.isCorrect ? "win" : "lose"}`}>
-          <h2 className="result-text">{result.isCorrect ? "✅ Correct!" : "❌ Wrong!"}</h2>
-
-          <p>
-            
-          {result.chosen.name}: {formatPlayers(result.chosen.players)} players
-            <br />
-            
-            {result.other.name}: {formatPlayers(result.other.players)} players
-          </p>
+          <h1 className="result-text">{result.isCorrect ? "✅ You won!" : "❌ You lost!"}</h1>
         </div>
       )}
 
@@ -139,11 +130,26 @@ export default function Game({ games }) {
             onError={(e) => (e.target.src = PLACEHOLDER)}
           />
           <div className="game-title">{leftGame.name}</div>
+          {result && (
+            <div className={`answer-under-left answer ${leftIsCorrect ? "correct" : "wrong"}`}>
+              <p>
+                {leftGame.name}: {formatPlayers(leftGame.players)} players
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="vs-container">
           <div className="vs-badge">VS</div>
         </div>
+
+        {result && !result.isCorrect && (
+          <div className="center-reset">
+            <button className="reset-btn" onClick={resetGame}>
+              Reset Game
+            </button>
+          </div>
+        )}
 
         <div className="game-card right-side" onClick={() => makeChoice("right")}>
           <img
@@ -153,6 +159,13 @@ export default function Game({ games }) {
             onError={(e) => (e.target.src = PLACEHOLDER)}
           />
           <div className="game-title">{rightGame.name}</div>
+          {result && (
+            <div className={`answer-under-right answer ${rightIsCorrect ? "correct" : "wrong"}`}>
+              <p>
+                {rightGame.name}: {formatPlayers(rightGame.players)} players
+              </p>
+            </div>
+          )}
         </div>
       </main>
     </>
